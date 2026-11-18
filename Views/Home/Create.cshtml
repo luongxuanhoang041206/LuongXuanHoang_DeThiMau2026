@@ -1,0 +1,38 @@
+﻿@model Sach
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    Layout = "~/Views/Shared/LuongXuanHoang_MainContent.cshtml";
+    ViewData["Title"] = "Them sach";
+    var ds = ViewBag.DSTheLoai as SelectList;
+}
+
+<div class="selection-head"><h3>Them sach moi</h3></div>
+<div class="form-wrap">
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="MaTl">The loai</label>
+            <select asp-for="MaTl" asp-items="ds" class="form-control"></select>
+            <span asp-validation-for="MaTl" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TenSach">Ten sach</label>
+            <input asp-for="TenSach" class="form-control"/>
+            <span asp-validation-for="TenSach" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Gia">Gia</label>
+            <input asp-for="Gia" class="form-control" />
+            <span asp-validation-for="Gia" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Anh">Ten file anh</label>
+            <input asp-for="Anh" class="form-control" />
+            <span asp-validation-for="Anh" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a asp-action="Index" class="btn btn-secondary">Huy</a>
+    </form>
+</div>

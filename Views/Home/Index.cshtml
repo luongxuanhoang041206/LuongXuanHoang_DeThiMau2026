@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Sach>
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    Layout = "~/Views/Shared/LuongXuanHoang_MainContent.cshtml";
+    var tieuDe = ViewBag.TieuDe as string ?? "Luong Xuan Hoang";
+}
+
+<div class="section-head">
+    <h3 id="tieu-de">@tieuDe</h3>
+    <a asp-action="Create">+ Them sach</a>
+</div>
+
+<div class="grid" id="ds-sach">
+    @foreach (var s in Model)
+    {
+        <div class="book-card">
+            <a href="#"><img src="~/images/@s.Anh" alt="@s.TenSach"/></a>
+            <h2>@s.TenSach</h2>
+            <div class="book-foot">
+                <span class="price">@s.Gia</span>
+                <button class="btn-huy" type="button">Them vao gio hang</button>
+            </div>
+        </div>
+    }
+    @if (!Model.Any())
+    {
+        <p class="empty">Khong co sach nao thoa man dieu kien</p>
+    }
+</div>

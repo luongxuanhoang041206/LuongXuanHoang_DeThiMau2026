@@ -1,0 +1,7 @@
+﻿@model IEnumerable<TheLoai>
+@foreach (var tl in Model)
+{
+    <li>
+        <a href="#" class="category-link"  data-matl="@tl.MaTl" data-tentl="@tl.TenTl">@tl.TenTl</a>
+    </li>
+}
